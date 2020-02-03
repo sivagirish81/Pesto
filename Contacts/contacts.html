@@ -34,11 +34,12 @@
 				this.xhr.onreadystatechange = () => {		//this refers to App's scope
 					if(this.xhr.readyState == 4 && this.xhr.status == 200)		
 					{
-						resobj = JSON.parse(this.xhr.responseText)
+						console.log(this.xhr.responseText);
+						resobj = JSON.parse(this.xhr.responseText);
 						this.setState({contacts:[resobj]});
 					}
 				}
-				this.xhr.open("GET", "http://localhost/Tutorials/React-php-mysql/php-react-rest-api-crud/api/contacts.php?id=1", true);
+				this.xhr.open("GET", "http://localhost:3000?id=1", true);
 				this.xhr.send();
 			}
 
