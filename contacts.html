@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pesto</title>
+    <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Load Babel Compiler -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+<style>
+
+.pesto{
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 20px; 
+  margin-bottom:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div id='root'></div>
+
+	<script  type="text/babel">
+
+		
+
+
+
+		class Pesto extends React.Component {
+
+			render(){
+				return (
+					<div class = "pesto">
+						<p> I am a Pesto </p>
+					</div>
+				);
+			}
+
+		}
+
+
+		class App extends React.Component {			//extending is important to use functions like componentDidMount
+
+			xhr = new XMLHttpRequest();
+
+			assignPestos()
+			{
+				console.log(this.xhr.responseText);
+			}
+
+			getPestos(name){
+				this.xhr.onload = this.assignPestos;
+				this.xhr.open("GET", "http://localhost:3000?name=" + name, true);
+				this.xhr.send(); 
+			}
+
+			componentDidMount(){
+				let pestos = this.getPestos(this.props.name);
+			}
+
+
+			render() {
+		    	return (
+		        	<div>
+		        		<Pesto />
+		        		<Pesto />
+		        		<Pesto />
+
+		        	</div>
+		    	);
+			}
+		}
+
+		let element = <App name = "mayank"/>	//App is a component. ReactDOM.render calls Apps's render method.
+		ReactDOM.render(element, document.getElementById('root'));
+	</script>
+</body> 
+
+</html>	
