@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pesto</title>
-    <script src= "https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script src= "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src= "React_and_Babel/react.production.min.js"></script>
+    <script src= "React_and_Babel/react-dom.production.min.js"></script>
     <!-- Load Babel Compiler -->
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+		<script src="React_and_Babel/babel.min.js"></script>
+		<script src = "index.js"></script>
 
 <style>
 
@@ -26,60 +27,84 @@
 <body>
 <div id='root'></div>
 
-	<script  type="text/babel">
+
+</body> 
+
+</html>	
+
+
+
+
+
+
+
+
+<script  type="text/babel">
 
 		
 
 
 
-		class Pesto extends React.Component {
+class Pesto extends React.Component {
 
-			render(){
-				return (
-					<div class = "pesto">
-						<p> I am a Pesto </p>
-					</div>
-				);
-			}
+    render(){
+        return (
+            <div class = "pesto">
+                <p> {this.props.text} </p>
+            </div>
+        );
+    }
 
-		}
-
-
-		class App extends React.Component {			//extending is important to use functions like componentDidMount
-
-			xhr = new XMLHttpRequest();
-
-			assignPestos()
-			{
-				console.log(this.xhr.responseText);
-			}
-
-			getPestos(name){
-				this.xhr.onload = this.assignPestos;
-				this.xhr.open("GET", "http://localhost:3000?name=" + name, true);
-				this.xhr.send(); 
-			}
-
-			componentDidMount(){
-				let pestos = this.getPestos(this.props.name);
-			}
+}
 
 
-			render() {
-		    	return (
-		        	<div>
-		        		<Pesto />
-		        		<Pesto />
-		        		<Pesto />
+class Pestos extends React.Component {
 
-		        	</div>
-		    	);
-			}
-		}
+    constructor(props) {
+        super(props);
+        this.state = {array_pestos:[]}
+    }
 
-		let element = <App name = "mayank"/>	//App is a component. ReactDOM.render calls Apps's render method.
-		ReactDOM.render(element, document.getElementById('root'));
-	</script>
-</body> 
+    xhr = new XMLHttpRequest();
 
-</html>	
+    assignPestos = () => {
+        // console.log(this.xhr.responseText);
+        this.setState({array_pestos: (JSON.parse(this.xhr.responseText).pestos).split(';')})
+    }
+
+    getPestos(name){
+        this.xhr.onload = this.assignPestos;
+        this.xhr.open("GET", "http://localhost:3000?name=" + name, true);
+        this.xhr.send(); 
+    }
+
+    componentDidMount(){
+        let pestos = this.getPestos(this.props.name);
+    }
+
+    render() {
+        return (
+
+                this.state.array_pestos.map((pesto) => (
+                    <Pesto text = {pesto} />
+                ))
+        );				
+    }
+
+}
+
+class App extends React.Component {			//extending is important to use functions like componentDidMount
+
+
+    render() {
+        return (
+            <div>
+                        <Pestos name = "mayank" />
+            </div>
+        );
+    }
+}
+
+let element = <App/>	//App is a component. ReactDOM.render calls Apps's render method.
+ReactDOM.render(element, document.getElementById('root'));
+</script>
