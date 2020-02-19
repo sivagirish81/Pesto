@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+// import './App.css';
 import Pestos from './Components/Pestos/Pestos'
 
 class App extends Component {			//extending is important to use functions like componentDidMount
@@ -12,6 +12,7 @@ class App extends Component {			//extending is important to use functions like c
           </div>
       );
   }
+  //Pestos component referes to all pestos together. This component in turn has pesto as componenet.
 }
 
 

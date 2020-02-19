@@ -5,8 +5,10 @@ import Pesto from '../Pesto/Pesto'
 class Pestos extends Component {
 
     constructor(props) {
-        super(props);
+        super(props);   
+        //Why? initialize this.props which is a member of parent to the props passed
         this.state = {array_pestos:[]}
+        //state
     }
 
     xhr = new XMLHttpRequest();
@@ -23,7 +25,8 @@ class Pestos extends Component {
     }
 
     componentDidMount(){
-        let pestos = this.getPestos(this.props.name);
+        this.getPestos(this.props.name);
+        //as soon as component is mounted, get corresponding pestos and store in state
     }
 
     render() {
@@ -31,6 +34,7 @@ class Pestos extends Component {
 
                 this.state.array_pestos.map((pesto, index) => (
                     <Pesto key = {index} text = {pesto} />
+                    //Need to have unique key for each element
                 ))
         );				
     }
@@ -38,3 +42,4 @@ class Pestos extends Component {
 }
 
 export default Pestos;
+//export this moudule as Pestos

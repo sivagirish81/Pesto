@@ -3,6 +3,7 @@ var cors = require('cors');
 var url = require('url');
 var mysql = require('mysql');
 var app = express();
+
 app.use(cors());
 
 var connection = mysql.createConnection({
