@@ -1,20 +1,13 @@
 var express = require('express');
+var app = express();
 var cors = require('cors');
 var url = require('url');
-var mysql = require('mysql');
-var app = express();
+
 
 app.use(cors());
 
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '....',
-	database: 'pesto'
-});
-
+var connection = require("./Mysql/connect_db");
 connection.connect();
-
 
 
 app.get('/', function (req, res) {
