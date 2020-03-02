@@ -2,7 +2,10 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 var url = require('url');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+//run before other middlewares
 
 app.use(cors());
 
@@ -11,7 +14,6 @@ connection.connect();
 
 
 app.get('/', function (req, res) {
-    console.log("Received Request");
     let q = url.parse(req.url, true);
     var qdata = q.query;
     console.log(qdata.name);
@@ -22,8 +24,11 @@ app.get('/', function (req, res) {
 		res.send(JSON.stringify(rows[0]));
 	}); 
 
-;})
+});
 
+app.post('/', function(req, res){   //in body, you will have the username and tweet. Add to followers
+    console.log(req.body);
+});
 
 var server = app.listen(2000, function () {
    var host = server.address().address

@@ -1,0 +1,3 @@
+* User has followers. The moment he pestos, all his followers have this appended in front in their list of pestos
+* Get with name gets all pestos in that name
+* post request with name and pesto, posts it and appends to all followers
