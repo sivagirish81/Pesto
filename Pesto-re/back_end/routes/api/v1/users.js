@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+var config = require("config");
 // Load input validation
 const validateRegisterInput = require("../../../utils/register");
 const validateLoginInput = require("../../../utils/login");
@@ -72,7 +72,7 @@ router.post("/login", (req,res) => {
                 (err, token) => {
                   res.json({
                     success: true,
-                    token: "Bearer " + token
+                    token: "Owner = " + token
                   });
                 }
               );
