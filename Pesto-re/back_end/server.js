@@ -1,6 +1,8 @@
 const express = require("express");
 const passport = require("passport");
 const users = require("./routes/api/v1/users");
+const pestos = require("./routes/api/v1/pestos");
+const admin = require("./routes/api/v1/admin");
 const app = express();
 
 const connectDB = require("./config/db");
@@ -20,7 +22,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/v1/users", users);
-
+app.use("/api/v1/pestos", pestos);
+app.use("/api/v1/admin",admin);
 // app.use("/healthcheck", require("express-healthcheck")());
 
 app.listen(PORT, () => {
