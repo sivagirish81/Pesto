@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-class Landing2 extends Component {
+class dbLanding extends Component {
   render() {
     return (
-        <div></div>
+        <div className = "container">
+        </div>
     );
   }
 }
-export default Landing2;
+export default dbLanding;

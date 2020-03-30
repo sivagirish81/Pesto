@@ -14,7 +14,7 @@ render() {
     const { user } = this.props.auth;
 return (
   <div className="container valign-wrapper">
-    <Route exact path="/findFriends" component={Navbar} />
+    <Route exact path="/Find-Friends" component={Navbar} />
   </div>
 );
   }

@@ -21,56 +21,24 @@ class Navbar extends Component {
         <div class="nav-content green">
           <ul class="tabs tabs-transparent">
             <li class="tab">
-              <a href = "#test1">
-              <Link
-              to="/dashboard"
-              style={{
-                fontFamily: "monospace"
-              }}
-              className="col s5 brand-logo center black-text"
-              >
-              </Link>
-              Dashboard
+              <a>
+                <Link to="/dashboard">Dashboard</Link>
               </a>
             </li>
             <li class="tab">
-            <a href = "#test2">
-              <Link
-                to="/Find-Friends"
-                style={{
-                  fontFamily: "monospace"
-                }}
-                className="col s5 brand-logo center black-text"
-              >
-              </Link>
-              Find Friends
+              <a>
+                <Link to="/Find-Friends">Find Friends</Link>
               </a>
             </li>
-            <li class="tab disabled">
-            <a href = "#test3">
-              <Link
-                to="/MyProf"
-                style={{
-                  fontFamily: "monospace"
-                }}
-                className="col s5 brand-logo center black-text"
-              >
-              </Link>
-              My Profile
-            </a>
+            <li class="tab">
+              <a>
+                <Link to="/MyProf">My Profile</Link>
+              </a>
             </li>
             <li class="tab">
-            <a href = "#test4">
-              <Link
-                to="/AbtUs"
-                style={{
-                  fontFamily: "monospace"
-                }}
-                className="col s5 brand-logo center black-text"
-              >
-              </Link>
-              About US
-            </a>
+              <a>
+                <Link to="/AbtUs">About Us</Link>
+              </a>
             </li>
           </ul>
         </div>
