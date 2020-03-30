@@ -18,7 +18,7 @@ class Navbar extends Component {
             <li><a class="waves-effect waves-light btn-large" onClick={this.onLogoutClick}>Logout</a></li>
           </ul>
         </div>
-        <div class="nav-content blue">
+        <div class="nav-content cyan">
           <ul class="tabs tabs-transparent">
             <li class="tab">
               <Link
