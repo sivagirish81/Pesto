@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar";
 
-class Dashboard extends Component {
+class myProf extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -14,12 +14,13 @@ render() {
     const { user } = this.props.auth;
 return (
   <div className="container valign-wrapper">
-    <Route exact path="/dashboard" component={Navbar} />
+    <Route exact path="/myProf" component={Navbar} />
   </div>
 );
   }
 }
-Dashboard.propTypes = {
+
+myProf.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -29,4 +30,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logoutUser }
-)(Dashboard);
+)(myProf);

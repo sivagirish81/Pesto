@@ -53,7 +53,7 @@ render() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s8 offset-s2">
+          <div className="col s8 offset-s2 card-panel indigo lighten-4">
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home

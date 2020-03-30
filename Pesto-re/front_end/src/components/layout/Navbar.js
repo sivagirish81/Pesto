@@ -18,11 +18,12 @@ class Navbar extends Component {
             <li><a class="waves-effect waves-light btn-large" onClick={this.onLogoutClick}>Logout</a></li>
           </ul>
         </div>
-        <div class="nav-content cyan">
+        <div class="nav-content green">
           <ul class="tabs tabs-transparent">
             <li class="tab">
+              <a href = "#test1">
               <Link
-              to="/"
+              to="/dashboard"
               style={{
                 fontFamily: "monospace"
               }}
@@ -30,9 +31,10 @@ class Navbar extends Component {
               >
               </Link>
               Dashboard
+              </a>
             </li>
             <li class="tab">
-            <a>
+            <a href = "#test2">
               <Link
                 to="/Find-Friends"
                 style={{
@@ -44,8 +46,8 @@ class Navbar extends Component {
               Find Friends
               </a>
             </li>
-            <li class="tab">
-            <a>
+            <li class="tab disabled">
+            <a href = "#test3">
               <Link
                 to="/MyProf"
                 style={{
@@ -58,7 +60,7 @@ class Navbar extends Component {
             </a>
             </li>
             <li class="tab">
-            <a>
+            <a href = "#test4">
               <Link
                 to="/AbtUs"
                 style={{
