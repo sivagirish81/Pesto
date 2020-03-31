@@ -63,7 +63,7 @@ router.post("/post", (req,res) => {
 // Should be modified to view only pestos made available the user
 router.get("/display", async (req,res) => {
     console.log(req.query.name);
-    var contents = await Pesto.find({posted_by : req.query.name});
+    var contents = await Pesto.find({visible : "all"});
     return res.status(200).json(contents);
 });
 // Can write a method to count the total number of pestos
