@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { pestoPost } from "../../actions/pestoActions";
 import jwt_decode from "jwt-decode";
+import classnames from "classnames";
 
 class dbLanding extends Component {
   constructor() {
@@ -33,15 +34,18 @@ class dbLanding extends Component {
   
   onSubmit = e => {
     e.preventDefault();
+    const userobj = jwt_decode(localStorage.getItem("jwtToken"));
+    console.log("Posted-by : ",userobj.name);
     var cdate = Date();
     cdate = cdate.toString();
     const userData = {
           pestoid : 3,
           post: this.state.post,
+          posted_by:userobj.name,
           timestamp : cdate,
           visible : "all"
         };
-    console.log(userData);
+    console.log("userData : ",userData);
     this.props.pestoPost(userData);
     };
     
@@ -49,11 +53,35 @@ class dbLanding extends Component {
       const {readablePosts} = this.state;
       return (
         <div class = "container">
+          <form noValidate onSubmit={this.onSubmit}>
+              <div className="input-field col s12">
+                <textarea class = "posts"
+                  style={{
+                    height : "100px",
+                  }}
+                  onChange={this.onChange}
+                  value={this.state.post}
+                  id="post"
+                  type="post"
+                />
+                <label htmlFor="post">What's on your mind??</label>
+                <span className="red-text">
+                </span>
+              </div>
+                <button
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                >
+                Post
+                </button>
+            </form>
+        <div class = "scroll">
         <>
-          {readablePosts.map((key) => {
+          {readablePosts.reverse().map((key) => {
             return <div class = "card-panel blue-grey lighten - 4 pestostyle"><i class="material-icons tsize">ac_unit</i>{key.posted_by}<div class = "pestotext">{key.post}</div></div>
             })}
         </>
+        </div>
         </div>
       );
     }

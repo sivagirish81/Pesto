@@ -9,19 +9,13 @@ import {
 
 export const pestoPost = (userData, history) => dispatch => {
   axios
-    .post("/api/v1/users/post", userData)
+    .post("/api/v1/pestos/post", userData)
     .then(res => history.push("/"))
-    .catch(err =>
-        dispatch({
-          type: GET_ERRORS,
-          payload: err.response.data
-        })
-    );
 };
 
 export const readPosts = (userData, history) => dispatch => {
   axios
-    .post("/api/v1/users/display", userData)
+    .post("/api/v1/pestos/display", userData)
     .then(res => history.push("/"))
     .catch(err =>
         dispatch({
