@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar";
+import dbLanding from "../layout/dbLanding";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -13,8 +14,9 @@ class Dashboard extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-  <div className="container valign-wrapper">
+  <div>
     <Route exact path="/dashboard" component={Navbar} />
+    <Route exact path="/dashboard" component={dbLanding} />
   </div>
 );
   }

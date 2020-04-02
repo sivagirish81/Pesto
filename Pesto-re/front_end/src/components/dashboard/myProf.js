@@ -13,7 +13,7 @@ class myProf extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-  <div className="container valign-wrapper">
+  <div>
     <Route exact path="/MyProf" component={Navbar} />
   </div>
 );

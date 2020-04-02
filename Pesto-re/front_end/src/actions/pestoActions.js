@@ -10,7 +10,7 @@ import {
 export const pestoPost = (userData, history) => dispatch => {
   axios
     .post("/api/v1/users/post", userData)
-    .then(res => history.push("/login"))
+    .then(res => history.push("/"))
     .catch(err =>
         dispatch({
           type: GET_ERRORS,

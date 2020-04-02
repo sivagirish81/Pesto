@@ -13,7 +13,7 @@ class findFriends extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-  <div className="container valign-wrapper">
+  <div>
     <Route exact path="/Find-Friends" component={Navbar} />
   </div>
 );

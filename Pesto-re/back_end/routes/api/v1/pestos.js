@@ -46,6 +46,7 @@ router.post("/post", (req,res) => {
         pestoId : req.body.pestoId,
         posted_by : req.body.posted_by,
         timestamp : req.body.timestamp,
+        post : req.body.post,
         visible : req.body.visible
     });
     newPesto.save(function(err){
@@ -62,7 +63,7 @@ router.post("/post", (req,res) => {
 // List all pestos of a particualr user
 // Should be modified to view only pestos made available the user
 router.get("/display", async (req,res) => {
-    console.log(req.query.name);
+    //console.log(req.query.name);
     var contents = await Pesto.find({visible : "all"});
     return res.status(200).json(contents);
 });

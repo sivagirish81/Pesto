@@ -9,6 +9,10 @@ const PestoSchema = new Schema({
         type : String
     },
     timestamp: {
+        type: Date,
+        default:Date.now
+    },
+    post:{
         type: String
     },
     visible : [{type : String }]

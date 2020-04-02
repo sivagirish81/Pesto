@@ -72,7 +72,7 @@ router.post("/login", (req,res) => {
                 (err, token) => {
                   res.json({
                     success: true,
-                    token: "Owner = " + token
+                    token: user.name + " = " + token
                   });
                 }
               );
