@@ -51,7 +51,7 @@ class dbLanding extends Component {
         <div class = "container">
         <>
           {readablePosts.map((key) => {
-            return <div class = "card-panel blue-grey lighten - 4">{key.post}</div>
+            return <div class = "card-panel blue-grey lighten - 4 pestostyle"><i class="material-icons tsize">ac_unit</i>{key.posted_by}<div class = "pestotext">{key.post}</div></div>
             })}
         </>
         </div>
