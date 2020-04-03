@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar";
+import ProfLanding from "../layout/ProfLanding";
 
 class myProf extends Component {
   onLogoutClick = e => {
@@ -15,6 +16,7 @@ render() {
 return (
   <div>
     <Route exact path="/MyProf" component={Navbar} />
+    <Route exact path="/MyProf" component={ProfLanding} />
   </div>
 );
   }

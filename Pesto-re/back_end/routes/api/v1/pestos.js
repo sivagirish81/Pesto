@@ -9,6 +9,7 @@ const validateRegisterInput = require("../../../utils/register");
 const validateLoginInput = require("../../../utils/login");
 // Load User model
 const Pesto = require("../../../models/Pesto");
+const User = require("../../../models/User");
 
 // Generate random number
 const getRandomInt = max => {
@@ -68,6 +69,14 @@ router.get("/display", async (req,res) => {
     return res.status(200).json(contents);
 });
 // Can write a method to count the total number of pestos
+
+router.get("/myprof",async(req,res) => {
+    console.log(req.query.name);
+    //console.log(req);
+    var myprof = await User.find({name:req.query.name});
+    console.log("Profile Displaying");
+    return res.status(200).json(myprof);
+});
 
 //Delete a pesto
 router.delete("/remove",async (req,res) => {
