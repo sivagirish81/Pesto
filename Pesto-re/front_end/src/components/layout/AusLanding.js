@@ -24,6 +24,7 @@ class AusLanding extends Component {
     
     render() {
       return (
+      <div class = "flow-text">
         <div class = "card-panel aus">
             <div class = "AboutUS">
                 <p class="brand-logo center"><i class="material-icons">ac_unit</i>PESTO</p>
@@ -39,6 +40,7 @@ class AusLanding extends Component {
                     Email - ID    : mayankagarwal4442@gmail.com<br/>
                 </p>
             </div>
+        </div>
         </div>
       );
     }

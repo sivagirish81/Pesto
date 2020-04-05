@@ -56,6 +56,7 @@ class ProfLanding extends Component {
       //let key = Object.keys(profile);
       //let prof = key[0];
       return (
+      <div class = "flow-text">
         <div class = "container">
           <div class  = "row card-panel blue-grey lighten-4 biggy">
             <div class = "col s3 smallen">
@@ -76,12 +77,13 @@ class ProfLanding extends Component {
                   <div>
                     <>
                       {profile.map((key) => {
-                        return <div><p class = "email-text"> <i class="material-icons">email</i>  : {key.email}</p></div>
+                        return <div><p class = "my-name"><i class="material-icons">person_pin_circle</i> : {key.name}</p><p class = "Location-text"><i class="material-icons">my_location</i> : Location has to be replaced from database</p><p class = "email-text"> <i class="material-icons">email</i>  : {key.email}</p><p class = "my-phone"><i class="material-icons">phone</i> : Phone Num</p></div>
                       })}
                     </>
                     </div>
             </div>
           </div>
+        </div>
         </div>
       );
     }
