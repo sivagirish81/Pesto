@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 var config = require("config");
 // Load input validation
-const validateRegisterInput = require("../../../utils/register");
-const validateLoginInput = require("../../../utils/login");
+const validateRegisterInput = require("../../../Utils/register");
+const validateLoginInput = require("../../../Utils/login");
 // Load User model
 const Pesto = require("../../../models/Pesto");
 const User = require("../../../models/User");

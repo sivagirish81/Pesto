@@ -30,7 +30,7 @@ class AusLanding extends Component {
                 <p>Pesto is a hobby  project designed by 2 geeks who had some free time during the corona Lockdown in India,<br/>
                 We started learning MERN stack and developed our blogging platform simultaneously.Our Website will be made opensource 
                 and anyone who wishes to contribute will be most welcome.<br/>We do not sell your data.</p>
-                <p>The name Pesto is attributed to the creaters love for Pasta.Pesto is a type of round Pasta.</p>
+                <p>The name Pesto is attributed to the creaters love for Pasta.</p>
                 <p class = "creaters"><br/>
                     R Siva Girish : PES1201700159<br/>
                     Email - ID    : sivagirish81@gmail.com<br/>
