@@ -45,6 +45,7 @@ class dbLanding extends Component {
         };
     console.log("userData : ",userData);
     this.props.pestoPost(userData);
+    window.location.reload(true);
     };
     
     render() {
@@ -76,7 +77,7 @@ class dbLanding extends Component {
         <div class = "scroll">
         <>
           {readablePosts.reverse().map((key) => {
-            return <div class = "card-panel blue-grey lighten - 4 pestostyle"><i class="material-icons tsize">ac_unit</i>{key.posted_by}<div class = "pestotext">{key.post}</div></div>
+            return <div class = "flow-text card-panel blue-grey lighten - 4 pestostyle"><i class="material-icons tsize">ac_unit</i>{key.posted_by}<div class = "pestotext">{key.post}</div></div>
             })}
         </>
         </div>
