@@ -22,7 +22,7 @@ componentDidMount() {
   }
 }
 
-componentWillReceiveProps(nextProps) {
+componentWillReceiveProps(nextProps) {  
   if (nextProps.auth.isAuthenticated) {
     this.props.history.push("/dashboard"); // push user to dashboard when they login
   }
@@ -36,6 +36,7 @@ componentWillReceiveProps(nextProps) {
 onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
+  
 onSubmit = e => {
   e.preventDefault();
   const userData = {
