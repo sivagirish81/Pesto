@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import { logoutUser } from "../../actions/authActions";
 import Navbar from "../layout/Navbar";
+import rss from "../layout/rss"
 import AusLanding from "../layout/AusLanding";
 
 class AbtUs extends Component {
@@ -17,6 +18,7 @@ return (
   <div>
     <Route exact path="/AbtUs" component={Navbar} />
     <Route exact path="/AbtUs" component={AusLanding} />
+    <Route exact path = "/AbtUs" component = {rss} />
   </div>
 );
   }
