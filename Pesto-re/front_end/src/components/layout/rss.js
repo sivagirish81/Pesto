@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 
+import "./rss.css"
+
 class rss extends Component {
     constructor() {
       super();
@@ -21,46 +23,31 @@ class rss extends Component {
             if (this.xhr.readyState == 4 && this.xhr.status == 200)
             {
                 let root = this.xhr.responseXML.documentElement;
-                let item = root.getElementsByTagName("item")[0];
+                let items = root.getElementsByTagName("item")[0];
                 let title = root.getElementsByTagName("title")[0];
                 let link = root.getElementsByTagName("link")[0];
-                let text = item.getElementsByTagName("description")[0].firstChild.nodeValue;
-                let anchor = document.createElement("a");
-                anchor.innerHTML = text;
-                anchor.href = link.firstChild.nodeValue;
-                this.obj.divinner.innerHTML = " ";
-                this.obj.divinner.appendChild(anchor);
+                let ele = document.createElement("a");
+                ele.innerHTML = title.firstChild.nodeValue;
+                ele.href = link.firstChild.nodeValue;
+                
+                let eled = document.createElement("div");
+                eled.appendChild(ele);
+                eled.className = "marquee";
+                console.log(eled);
+
+                this.obj.divinner.innerHTML = "";
+                this.obj.divinner.appendChild(eled);
             }
-        },
-        scroll : () => 
-        {
-            console.log("I'm Scroling");
-            if (this.obj.divinner.offsetLeft + this.obj.divinner.offsetWidth < 2)
-            {
-                this.obj.divinner.style.left = window.innerWidth - 5 + "px";
-            }
-            else
-            {
-                this.obj.divinner.style.left = this.obj.divinner.offsetLeft - 5 + "px";
-            }
-            setTimeout(this.obj.scroll,20);
         }
-      };
+     };
     }
   
-    onChange = e => {
-      this.obj.divinner = this.myref.current;
-      this.obj.divinner.style.left = window.innerWidth - 5 + "px";
-      //this.obj.scroll();
-      //this.myref.current.scrollIntoView({behaviour:'smooth',block:'start'})
-      setInterval(this.obj.getNews,20);
-    };
 
     componentDidMount() {
         this.obj.divinner = this.myref.current;
         this.obj.divinner.style.left = window.innerWidth - 5 + "px";
-        //this.obj.scroll();
-        setInterval(this.obj.getNews,5000);
+        this.obj.getNews();
+        setInterval(this.obj.getNews,10000);
     }
   
     render() {
