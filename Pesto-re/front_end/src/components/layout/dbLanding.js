@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { pestoPost } from "../../actions/pestoActions";
 import jwt_decode from "jwt-decode";
+import {encode,decode,assign_codes,remove_frequencies,buildtree,sort_on_freqs,calc_frequency} from "../../Utils/Huffman_Denc";
 
 class dbLanding extends Component {
   constructor() {
@@ -12,7 +13,9 @@ class dbLanding extends Component {
       postId: {},
       visible : "all",
       readablePosts:[],
-      isloaded : false
+      isloaded : false,
+
+      mypost : {}
     };
   }
 
@@ -36,6 +39,8 @@ class dbLanding extends Component {
     console.log("Posted-by : ",userobj.name);
     var cdate = Date();
     cdate = cdate.toString();
+    let trimmed_tree = remove_frequencies(buildtree(sort_on_freqs(calc_frequency(this.state.post))));
+    this.state.post = encode(trimmed_tree,this.state.post);
     const userData = {
           pestoid : 3,
           post: this.state.post,
@@ -50,6 +55,24 @@ class dbLanding extends Component {
     
     render() {
       const {readablePosts} = this.state;
+      //let posters = JSON.parse(JSON.stringify(this.state.readablePosts));
+      //console.log(posters);
+      //console.log(posters[0][0].post);
+      //var trimmed_tree;
+      //posters.map((key) => {
+      //  console.log(key.post);
+      //  var trimmed_tree = remove_frequencies(buildtree(sort_on_freqs(calc_frequency(key.post))));
+      //});
+      
+      
+      //for (i = 0;i < posters.length;i++)
+      //{
+      //  trimmed_tree = remove_frequencies(buildtree(sort_on_freqs(calc_frequency(posters[i].post))));
+      //}
+      //readablePosts.reverse().map((key) => {
+      //  let trimmed_tree = remove_frequencies(buildtree(sort_on_freqs(calc_frequency(this.state.post))));
+      //  key.post = decode(trimmed_tree,key.post);
+      //  })
       return (
         <div class = "container">
           <form noValidate onSubmit={this.onSubmit}>

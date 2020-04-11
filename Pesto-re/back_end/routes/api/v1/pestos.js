@@ -4,6 +4,8 @@ const querystring = require('querystring');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 var config = require("config");
+const multer = require('multer');
+//var upload = multer({ storage: storage })
 // Load input validation
 const validateRegisterInput = require("../../../Utils/register");
 const validateLoginInput = require("../../../Utils/login");
