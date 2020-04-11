@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { pestoPost } from "../../actions/pestoActions";
 import jwt_decode from "jwt-decode";
+import Img from "react-image";
 
 class ProfLanding extends Component {
   constructor() {
@@ -53,8 +54,9 @@ class ProfLanding extends Component {
       console.log("Profile = ",profile);
       const userobj = jwt_decode(localStorage.getItem("jwtToken"));
       console.log("Posted-by : ",userobj.name);
-      //let key = Object.keys(profile);
-      //let prof = key[0];
+      const Img = require('react-image');
+      var pimages = require('./Profimages/Ronald.png');
+      //console.log(pimages['Ronald']);
       return (
       <div class = "flow-text">
         <div class = "container">
@@ -62,7 +64,7 @@ class ProfLanding extends Component {
             <div class = "col s3 smallen">
                 <div class="card">
                     <div class="card-image">
-                        <img src={require("./nprof.gif")}></img>
+                        <img src = {require('./nprof.gif')}/>
                         <span class="card-title">Profile</span>
                      </div>
                     <div class="card-content">
@@ -77,10 +79,13 @@ class ProfLanding extends Component {
                   <div>
                     <>
                       {profile.map((key) => {
-                        return <div><p class = "my-name"><i class="material-icons">person_pin_circle</i> : {key.name}</p><p class = "Location-text"><i class="material-icons">my_location</i> : Location has to be replaced from database</p><p class = "email-text"> <i class="material-icons">email</i>  : {key.email}</p><p class = "my-phone"><i class="material-icons">phone</i> : Phone Num</p></div>
+                        return <div><p class = "my-name"><i class="material-icons">person_pin_circle</i> : {key.name}</p><p class = "Location-text"><i class="material-icons">my_location</i> : {key.address}</p><p class = "email-text"> <i class="material-icons">email</i>  : {key.email}</p><p class = "my-phone"><i class="material-icons">phone</i> : {key.phonenum}</p></div>
                       })}
                     </>
-                    </div>
+                  </div>
+                  <div class = "bottom-uploader">
+                    <p>Image Upload is a beta feature which couldn't be implemented due to time constraints</p>
+                  </div>
             </div>
           </div>
         </div>

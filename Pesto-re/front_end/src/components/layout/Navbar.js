@@ -25,11 +25,11 @@ class Navbar extends Component {
                 <Link to="/dashboard">Dashboard</Link>
               </a>
             </li>
-            <li class="tab">
+            {/*<li class="tab">
               <a>
                 <Link to="/Find-Friends">Find Friends</Link>
               </a>
-            </li>
+            </li>*/}
             <li class="tab">
               <a>
                 <Link to="/MyProf">My Profile</Link>

@@ -19,6 +19,14 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  phonenum: {
+    type: Number,
+    required: true
   }
 });
 

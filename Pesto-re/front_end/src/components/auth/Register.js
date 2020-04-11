@@ -42,7 +42,9 @@ onSubmit = e => {
           name: this.state.name,
           email: this.state.email,
           password: this.state.password,
-          password2: this.state.password2
+          password2: this.state.password2,
+          address: this.state.address,
+          phonenum: this.state.phonenum
         };
     console.log(newUser);
     this.props.registerUser(newUser, this.props.history);
@@ -94,6 +96,34 @@ render() {
                 />
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.phonenum}
+                  error={errors.name}
+                  id="phonenum"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.email
+                  })}
+                />
+                <label htmlFor="phonenum">Phone Number</label>
+                <span className="red-text">{errors.name}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.address}
+                  error={errors.name}
+                  id="address"
+                  type="text"
+                  className={classnames("", {
+                    invalid: errors.name
+                  })}
+                />
+                <label htmlFor="address">Address</label>
+                <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
                 <input
