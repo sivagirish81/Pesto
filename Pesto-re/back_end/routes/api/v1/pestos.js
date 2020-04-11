@@ -50,6 +50,7 @@ router.post("/post", (req,res) => {
         posted_by : req.body.posted_by,
         timestamp : req.body.timestamp,
         post : req.body.post,
+        postHash : req.body.postHash,
         visible : req.body.visible
     });
     newPesto.save(function(err){

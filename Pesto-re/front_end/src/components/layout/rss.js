@@ -52,10 +52,8 @@ class rss extends Component {
   
     render() {
       return (
-        <div >
-            <div ref = {this.myref}>
+            <div class = "card-panel transparent" ref = {this.myref}>
             </div>
-        </div>
       );
     }
   }
