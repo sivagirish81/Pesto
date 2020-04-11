@@ -1,4 +1,4 @@
-function calc_frequency(s)
+export function calc_frequency(s)
 {
 	let frequencies = {};
 	for(let i = 0; i < s.length; ++i)
@@ -11,7 +11,7 @@ function calc_frequency(s)
 	return frequencies;
 }
 
-function sort_on_freqs(frequencies)
+export function sort_on_freqs(frequencies)
 {
 	let letters = [];
 	for(let c in frequencies)
@@ -19,7 +19,7 @@ function sort_on_freqs(frequencies)
 	return letters.sort();
 }
 
-function buildtree(letters){
+export function buildtree(letters){
     while(letters.length >= 2)
     {
         let least_two = letters.slice(0,2);
@@ -36,7 +36,7 @@ function buildtree(letters){
     return letters[0];	//root
 }
 
-function remove_frequencies(tree)
+export function remove_frequencies(tree)
 {
 	if(tree.length == 0) return tree;
     var p = tree[1];
@@ -51,7 +51,7 @@ function remove_frequencies(tree)
 }
 
 let codes = {};
-function assign_codes(node, code)
+export function assign_codes(node, code)
 {
 	if (typeof(node) == 'string')
    	{
@@ -64,7 +64,7 @@ function assign_codes(node, code)
 	}
  }
 
- function encode(tree, s){
+ export function encode(tree, s){
  	if(tree.length == 0) return "";
  	assign_codes(tree, "")
     let encoded_output = "";
@@ -75,9 +75,12 @@ function assign_codes(node, code)
     return encoded_output;
 }
 
-function decode(tree, s)
+export function decode(tree, s)
 {
-	if(tree.length == 0) return "";
+    //console.log(tree);
+    //console.log("s",s);
+    if(tree.length == 0) return "";
+    if(s.length == 0) return "";
 	let decoded_output = "";
     let t = tree;
  	for (var bit in s)
