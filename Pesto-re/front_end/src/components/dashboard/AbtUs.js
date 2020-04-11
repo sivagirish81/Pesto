@@ -17,8 +17,8 @@ render() {
 return (
   <div>
     <Route exact path="/AbtUs" component={Navbar} />
-    <Route exact path="/AbtUs" component={AusLanding} />
     <Route exact path = "/AbtUs" component = {rss} />
+    <Route exact path="/AbtUs" component={AusLanding} />
   </div>
 );
   }
