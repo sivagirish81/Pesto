@@ -2,8 +2,8 @@
     height: 50px;
     white-space: nowrap;
     position: relative;
-    background: #fefefe;
-    color: #333;
+    background: transparent;
+    color:red;
     border: 1px solid #4a4a4a;
 }
 

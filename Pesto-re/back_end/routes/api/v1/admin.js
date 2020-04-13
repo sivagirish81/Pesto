@@ -14,10 +14,7 @@ router
     })
     // Clear Database
     .delete(async(req,res) => {
-        const reso = await User.deleteMany({},function(err){
-            console.log(err);
-            return res(400);
-        });
+        const reso = await User.deleteMany({});
         console.log("User database cleared");
         return res.status(200).json({});
     })
