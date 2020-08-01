@@ -15,7 +15,7 @@ connectDB();
 // Init Body Parser middleware
 app.use(express.json({ extended: false }));
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 //allows usage of custom port :- PORT=444 node index.js . If not given, use 5000
 
 // Passport middleware
