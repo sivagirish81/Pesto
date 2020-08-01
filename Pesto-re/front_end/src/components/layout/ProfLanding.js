@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { pestoPost } from "../../actions/pestoActions";
 import jwt_decode from "jwt-decode";
 
+const API_URI="https://pesto-blog.herokuapp.com"
+
 class ProfLanding extends Component {
   constructor() {
     super();
@@ -19,7 +21,7 @@ class ProfLanding extends Component {
   async componentDidMount()
   {
     const userobj = jwt_decode(localStorage.getItem("jwtToken"));
-    const fetchreq = '/api/v1/pestos/myprof?name=' + userobj.name;
+    const fetchreq = `${API_URI}/api/v1/pestos/myprof?name=` + userobj.name;
     console.log(fetchreq);
     const response = await fetch(fetchreq);
     const data = await response.json();

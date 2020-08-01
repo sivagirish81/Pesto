@@ -5,6 +5,8 @@ import { pestoPost } from "../../actions/pestoActions";
 import jwt_decode from "jwt-decode";
 import {encode,decode,assign_codes,remove_frequencies,buildtree,sort_on_freqs,calc_frequency} from "../../Utils/Huffman_Denc";
 
+const API_URI="https://pesto-blog.herokuapp.com"
+
 class dbLanding extends Component {
   constructor() {
     super();
@@ -24,7 +26,7 @@ class dbLanding extends Component {
   {
     // As soon as it mounts it has to display all pestos
     console.log("Owner = ",jwt_decode(localStorage.getItem("jwtToken")));
-    const response = await fetch('/api/v1/pestos/display');
+    const response = await fetch(`${API_URI}/api/v1/pestos/display`);
     const data = await response.json();
     console.log("Data : ",data);
     this.setState({isloaded:true,readablePosts:data});
