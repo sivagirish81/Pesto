@@ -5,6 +5,7 @@ const pestos = require("./routes/api/v1/pestos");
 const admin = require("./routes/api/v1/admin");
 const app = express();
 
+require('dotenv').config();
 
 const connectDB = require("./config/db");
 
