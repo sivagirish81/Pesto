@@ -7,9 +7,12 @@ import {
   USER_LOADING
 } from "./types";
 // Register User
+
+const API_URI="https://pesto-blog.herokuapp.com"
+
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("/api/v1/users/register", userData)
+    .post(`${API_URI}/api/v1/users/register`, userData)
     .then(res=> history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
@@ -21,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("/api/v1/users/login", userData)
+    .post(`${API_URI}/api/v1/users/login`, userData)
     .then(res => {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);

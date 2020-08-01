@@ -7,15 +7,17 @@ import {
   USER_LOADING
 } from "./types";
 
+const API_URI="https://pesto-blog.herokuapp.com"
+
 export const pestoPost = (userData, history) => dispatch => {
   axios
-    .post("/api/v1/pestos/post", userData)
+    .post(`${API_URI}/api/v1/pestos/post`, userData)
     .then(res => history.push("/"))
 };
 
 export const readPosts = (userData, history) => dispatch => {
   axios
-    .post("/api/v1/pestos/display", userData)
+    .post(`${API_URI}/api/v1/pestos/display`, userData)
     .then(res => history.push("/"))
     .catch(err =>
         dispatch({
