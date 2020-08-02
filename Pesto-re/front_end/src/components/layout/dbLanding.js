@@ -57,7 +57,7 @@ class dbLanding extends Component {
     console.log("userData : ",userData);
     //this.props.pestoPost(userData);
 
-    const resp =await fetch(url = `${API_URI}/api/v1/pestos/display`,{
+    const resp =await fetch(url = `${API_URI}/api/v1/pestos/post`,{
       method: 'POST',
       body: userData
     });
