@@ -61,7 +61,7 @@ router.post("/post", (req,res) => {
         }
     });
     console.log("New Pesto Created Successfully");
-    return res.status(200).json({});
+    return res.status(200).json(newPesto);
 });
 
 // List all pestos of a particualr user
