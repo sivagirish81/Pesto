@@ -59,7 +59,7 @@ class dbLanding extends Component {
     
     const resp = fetch(`${API_URI}/api/v1/pestos/post`,{
       method: 'POST',
-      body: json.stringify(userData)
+      body: JSON.stringify(userData)
     });
 
     window.location.reload(true);
