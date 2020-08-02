@@ -62,7 +62,7 @@ class dbLanding extends Component {
       body: JSON.stringify(userData)
     });
 
-    window.location.reload(true);
+    //window.location.reload(true);
     };
     
     render() {
