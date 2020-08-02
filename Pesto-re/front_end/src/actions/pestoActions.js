@@ -11,7 +11,7 @@ const API_URI="https://pesto-blog.herokuapp.com"
 
 export const pestoPost = (userData, history) => dispatch => {
   axios
-    .post(`${API_URI}/api/v1/pestos/post`, userData , {timeout : 50000})
+    .post(`${API_URI}/api/v1/pestos/post`, userData , {timeout : 5000000})
     .then(res => history.push("/"))
 };
 
