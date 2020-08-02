@@ -55,8 +55,11 @@ class dbLanding extends Component {
           visible : "all"
         };
     console.log("userData : ",userData);
-    var newPost = this.props.pestoPost(userData);
-    console.log(newPost);
+    var newPost = this.props.pestoPost(userData).then(() => {
+      //console.log(data);
+      window.location.reload(true);
+    });
+    
     /*
     const resp = fetch(`${API_URI}/api/v1/pestos/post`,{
       method: 'POST',
